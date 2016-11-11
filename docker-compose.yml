@@ -1,0 +1,32 @@
+lagmonitor:
+  build: .
+  links:
+    - kafka
+    - zookeeper
+    - grafana-dashboard
+
+zookeeper:
+  image: wurstmeister/zookeeper
+  ports:
+    - "2181:2181"
+
+kafka:
+  image: wurstmeister/kafka:0.9.0.1
+  ports:
+    - "9092:9092"
+  links:
+    - zookeeper:zk
+  environment:
+    KAFKA_ADVERTISED_HOST_NAME: 10.200.10.1
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+
+grafana-dashboard:
+    image: samuelebistoletti/docker-statsd-influxdb-grafana
+    container_name: docker-statsd-influxdb-grafana
+    ports:
+      - '3003:9000'
+      - '3004:8083'
+      - '8086:8086'
+      - '20022:22'
+      - '8125:8125/udp'
