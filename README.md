@@ -21,7 +21,7 @@ To run locally with Docker Compose and link to a local Grafana instance:
 $ docker-compose up -d
 ```
 
-Note: You may wish to replace references to `10.200.10.1` in config.yaml and docker-compose.yml, or alias lo0 to this address, e.g. `sudo ifconfig lo0 alias 10.200.10.1/24`. This is a workaround for a Docker for Mac limitation which can be ignored if you're not using Docker for Mac.
+Note: You may wish to replace references to `10.200.10.1` in config.yaml and docker-compose.yml, or alias `lo0` to this address, e.g. `ifconfig lo0 alias 10.200.10.1/24`. This is a workaround for a Docker for Mac limitation which can be ignored if you're not using Docker for Mac.
 
 
 ## Viewing Lag Graphs with Grafana 
