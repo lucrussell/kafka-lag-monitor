@@ -21,7 +21,7 @@ setup(
     data_files=[],
     entry_points={
         'console_scripts': [
-            'lagmonitor = lagmonitor.__main__:main'
+            'lagmonitor = lagmonitor.main:main'
         ],
     },
 )
