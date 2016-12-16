@@ -25,10 +25,10 @@ class Monitor:
                 group_topic_partition_lag = '{0}.{1}.{2}.{3}'.format(group_name, topic_name, partition, 'lag')
 
                 print("Setting: {0} to {1}".format(group_topic_partition_offset, offset_lag[0]))
-                self.statsd_client.set(group_topic_partition_offset, offset_lag[0])
+                self.statsd_client.gauge(group_topic_partition_offset, offset_lag[0])
                 lag = offset_lag[0] - offset_lag[1]
                 print("Setting: {0} to {1}".format(group_topic_partition_lag, lag))
-                self.statsd_client.set(group_topic_partition_lag, lag)
+                self.statsd_client.gauge(group_topic_partition_lag, lag)
 
     def get_lag(self, topic, consumer_group):
         latest_offsets = topic.latest_available_offsets()
