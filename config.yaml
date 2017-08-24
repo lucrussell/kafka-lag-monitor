@@ -1,6 +1,6 @@
 monitor:
     brokers:
-        - 10.200.10.1:9092
+        - kafka:9092
     # Check every 10s
     check_interval: 10
     consumer_groups:
@@ -9,6 +9,6 @@ monitor:
         topic2:
             group_name: group_id_2
     statsd:
-        host: 10.200.10.1
+        host: kafka
         port: 8125
         prefix: lagmonitor
